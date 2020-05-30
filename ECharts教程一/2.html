@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="echarts.js"></script>
+</head>
+<body>
+    <div id="main" style="width:900px;height:600px;"></div>
+    <script>
+        var myChart = echarts.init(document.getElementById('main'))
+        
+        var option ={
+            title:{
+                text:"某地区蒸发量和降水量",
+                backgroundColor:"#000000",
+                textAlign:"center",
+                textStyle:{
+                    color:"#ffffff"
+                },
+                left:500
+            },
+            tooltip:{
+                trigger:"axis"
+            },
+            legend:{
+                data:["蒸发","降水量"],
+                left:"left"
+            },
+            toolbox:{
+                show:true,
+                feature:{
+                    mark:{
+                        show:true
+                    },
+                    dataView:{
+                        show:true,
+                        readOnly:true,
+                    },
+                    magicType:{
+                        show:false,
+                        type:["line", "bar"]
+                    },
+                    restore:{
+                        show:true
+                    },
+                    saveAsImage:{
+                        show:true
+                    }
+                }
+            },
+            calculable:true,
+            xAxis:[
+                {
+                    type:"category",
+                    data:["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"]
+                }
+            ],
+            yAxis:[
+                {
+                    type:"value"
+                }
+                  
+            ],
+            series:[
+                {
+                    name:"蒸水量",
+                    type:'bar',
+                    data:[2,4.9,4,5,3,6,8,9,2.9,1,3]
+                },
+                {
+                    name:"降水量",
+                    type:"bar",
+                    data:[3,5,10,6,4,7,9,3,2,3,1,3]
+                }
+            ]
+                  
+        }
+        myChart.setOption(option)
+
+     
+   </script>
+</body>
+</html>
